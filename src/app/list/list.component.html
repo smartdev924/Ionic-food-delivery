@@ -1,0 +1,42 @@
+<ion-content class="content-featured">
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons class="ion-padding-start" slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Food Delivery</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list>
+    <ion-item
+      (click)="openModal(food)"
+      *ngFor="let food of foods | async"
+      lines="full"
+    >
+      <ion-label>
+        <ion-avatar slot="start">
+          <img [src]="food.image" alt="" />
+        </ion-avatar>
+        <div class="rows">
+          <div class="name">{{ food.name }}</div>
+          <div class="ingredients">
+            <span *ngFor="let ingredient of food.ingredients">
+              {{ ingredient.name }}
+            </span>
+          </div>
+          <div class="details">
+            <span class="duration">
+              <ion-icon name="time-outline"></ion-icon>
+              <span> {{ food.preparation_time }} min. </span>
+            </span>
+            <span class="calories">
+              <ion-icon name="flash-outline"></ion-icon>
+              <span> {{ food.calories }} cal. </span>
+            </span>
+            <span class="price"> ${{ food.price }} </span>
+          </div>
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

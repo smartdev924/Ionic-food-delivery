@@ -1,0 +1,51 @@
+<ion-app>
+  <ion-menu
+    *ngIf="isLoggedIn()"
+    side="start"
+    contentId="main"
+    menuClose
+  >
+    <ion-header class="ion-no-border">
+      <ion-toolbar>
+        <ion-title>Food Delivery</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list lines="none">
+        <ion-item routerLink="list" (click)="toggleMenu()">
+          <ion-icon color="primary" name="list-outline"></ion-icon>
+          <ion-label>
+            LIST
+          </ion-label>
+        </ion-item>
+        <ion-item routerLink="profile" (click)="toggleMenu()">
+          <ion-icon color="primary" name="person-circle-outline"></ion-icon>
+          <ion-label>
+            PROFILE
+          </ion-label>
+        </ion-item>
+
+        <ion-item routerLink="order" (click)="toggleMenu()">
+          <ion-icon color="primary" name="basket-outline"></ion-icon>
+          <ion-label>
+            SHOPPING CART
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+    <ion-footer class="ion-no-border">
+      <ion-toolbar>
+        <ion-list lines="none">
+          <ion-item (click)="logOut(); toggleMenu()">
+            <ion-icon color="primary" name="log-out-outline"></ion-icon>
+            <ion-label>
+              LOG OUT
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

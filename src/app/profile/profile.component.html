@@ -1,0 +1,46 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons class="ion-padding-start" slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title size="large">{{
+        user._id ? "Profile" : "Register"
+      }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input [(ngModel)]="user.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Surname</ion-label>
+      <ion-input [(ngModel)]="user.surname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Phone Number</ion-label>
+      <ion-input [(ngModel)]="user.phone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    <div class="buttons ion-margin-top">
+      <ion-button *ngIf="!user._id" (click)="back()" color="secondary"
+        >Back</ion-button
+      >
+      <ion-button color="primary" (click)="user._id ? save() : register()"
+        >Save</ion-button
+      >
+    </div>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,91 @@
+<ion-content>
+  <div class="swipe">
+    <ion-icon color="primary" name="chevron-down-outline"></ion-icon>
+  </div>
+  <ion-card>
+    <ion-card-content>
+      <ion-avatar>
+        <img [src]="food.image" alt="" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ food.name }}</h2>
+        <div class="options">
+          <div class="amount">
+            <ion-icon
+              (click)="count > 1 && (count = count - 1)"
+              name="remove-circle-outline"
+            ></ion-icon>
+            <span>
+              {{ count }}
+            </span>
+            <ion-icon
+              (click)="count = count + 1"
+              name="add-circle-outline"
+            ></ion-icon>
+          </div>
+          <div class="price">$ {{ food.price * count }}</div>
+        </div>
+      </ion-label>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Ingredients
+      </ion-card-title>
+      <ion-card-subtitle>
+        Please choose the materials that you want to remove.
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        <ion-chip
+          (click)="updateIngredients(ingredient.name, 'removeds')"
+          *ngFor="let ingredient of food.removable_ingredients"
+          [disabled]="extras.includes(ingredient.name)"
+          [color]="
+            removeds.includes(ingredient.name) ? 'danger' : 'tertiary'
+          "
+        >
+          <ion-label>
+            {{ ingredient.name }}
+          </ion-label>
+        </ion-chip>
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Extra Ingredients
+      </ion-card-title>
+      <ion-card-subtitle>
+        Please choose the materials that you want to add.
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        <ion-chip
+          (click)="updateIngredients(ingredient.name, 'extras')"
+          *ngFor="let ingredient of food.extra_ingredients"
+          [disabled]="removeds.includes(ingredient.name)"
+          [color]="
+            extras.includes(ingredient.name)
+              ? 'success'
+              : 'tertiary'
+          "
+        >
+          <ion-label>
+            {{ ingredient.name }}
+          </ion-label>
+        </ion-chip>
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="buttons">
+    <ion-button (click)="addToOrder()">
+      Add to cart
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,72 @@
+::ng-deep.modal {
+  overflow: scroll;
+  .modal-wrapper {
+    margin-top: 100px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+
+    div.swipe {
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    ion-card {
+      border-radius: 25px;
+
+      ion-card-header {
+        ion-card-subtitle {
+          font-size: 12px;
+        }
+      }
+
+      ion-card-content {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        ion-avatar {
+          width: 30%;
+          --border-radius: 10px;
+        }
+        > ion-label {
+          margin-left: 10px;
+          width: 70%;
+          p {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 300;
+            font-size: 12px;
+          }
+          div.options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            div.amount {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              * {
+                margin: 5px;
+              }
+            }
+
+            div.price {
+              margin-right: 15px;
+              color: var(--ion-color-primary);
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    div.buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

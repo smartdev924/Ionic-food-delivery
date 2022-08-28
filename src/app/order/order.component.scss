@@ -1,0 +1,101 @@
+ion-content {
+  ion-toolbar {
+    --color: #fff;
+  }
+  > ion-list {
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    margin-top: 100px;
+    min-height: 200px;
+  }
+
+  ion-list {
+    ion-item:not(.total-price) {
+      ion-label {
+        display: flex;
+        align-items: center;
+        ion-avatar {
+          --border-radius: 10px;
+          width: 30%;
+        }
+        div.rows {
+          width: 70%;
+          margin-left: 10px;
+          div.name {
+            font-weight: 500;
+            font-size: 16px;
+          }
+          div.ingredients {
+            margin: 2px 0px 5px 0px;
+            > span {
+              font-weight: 350;
+              font-size: 12px;
+              white-space: initial;
+            }
+          }
+
+          div.details {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            div.amount {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              * {
+                margin: 5px;
+              }
+            }
+
+            div.price {
+              margin-right: 15px;
+              color: var(--ion-color-primary);
+              font-size: 16px;
+            }
+
+            span {
+              font-size: 13px !important;
+            }
+
+            > span {
+              margin-right: 10px;
+              display: flex;
+              align-items: center;
+              > span {
+                margin-left: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    ion-item.total-price {
+      div {
+        text-align: end;
+        margin-right: 15px;
+        color: var(--ion-color-primary);
+
+        span {
+          font-size: 16px !important;
+          &:first-of-type {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    ion-item.header > ion-label:last-of-type {
+      text-align: center;
+    }
+  }
+
+  div.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 10px 0px;
+  }
+}
